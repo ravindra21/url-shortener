@@ -5,7 +5,7 @@ var port = process.env.PORT || 3000
 
 //connect to mongodb
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost/urlShortener')
+mongoose.connect(process.env.MONGOLAB_URI)
 var db = mongoose.connection
 
 //checking connection
