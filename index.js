@@ -46,8 +46,8 @@ app.get('/new/*',function(req, res){
 	if(isValidUrl(oriUrl)){
 		getDocByOU(oriUrl).then(function(doc){
 			doc ? 
-				res.json(doc) :
-				getCreateDoc(oriUrl).then(function(doc){ res.json(doc) })
+				res.json({short_url: doc.short_url ,original_url: doc.original_url}) :
+				getCreateDoc(oriUrl).then(function(doc){ res.json({short_url: doc.short_url ,original_url: doc.original_url}) })
 		})
 	}else{
 		res.send('the url not valid')
