@@ -24,7 +24,7 @@ var Url = mongoose.model('Url',urlSchema)
 
 app.get('/',function(req, res){
 
-	res.send(url)
+	res.send('hello world')
 })
 
 app.get('/:shortUrl',function(req, res){
