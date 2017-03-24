@@ -2,10 +2,10 @@ var express = require('express')
 var mongoose = require('mongoose')
 var app = express()
 var port = process.env.PORT || 3000
-
+var url = process.env.MONGOLAB_URI
 //connect to mongodb
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGOLAB_URI)
+mongoose.connect(url)
 var db = mongoose.connection
 
 //checking connection
@@ -24,7 +24,7 @@ var Url = mongoose.model('Url',urlSchema)
 
 app.get('/',function(req, res){
 
-	res.send('Hello world')
+	res.send('url')
 })
 
 app.get('/:shortUrl',function(req, res){
